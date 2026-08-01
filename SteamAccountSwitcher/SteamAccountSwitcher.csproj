@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>SteamAccountSwitcher</AssemblyName>
+    <RootNamespace>SteamAccountSwitcher</RootNamespace>
+    <ApplicationIcon>Assets\app-icon.ico</ApplicationIcon>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Resource Include="Assets\app-icon.ico"/>
+    <Resource Include="Assets\app-icon.png"/>
+  </ItemGroup>
+  <Target Name="CopyPublishedExeToProjectRoot" AfterTargets="Publish">
+    <Copy SourceFiles="$(PublishDir)SteamAccountSwitcher.exe"
+          DestinationFiles="$(MSBuildProjectDirectory)\SteamAccountSwitcher.exe"/>
+  </Target>
+</Project>
